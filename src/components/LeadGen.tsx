@@ -3,20 +3,20 @@ import { CheckCircle } from "lucide-react"
 
 const googleAdsFeatures = [
   "Search, Display & YouTube campaigns",
-  "In-depth keyword research & negative keywords",
-  "Ad copy writing and A/B testing",
-  "Conversion tracking & ROI reporting",
-  "Monthly strategy calls",
-  "Landing page recommendations",
+  "Deep keyword research & smart negative lists",
+  "Conversion-focused ad copy & A/B testing",
+  "Full conversion tracking & attribution",
+  "Monthly performance reports & strategy calls",
+  "Landing page audit & recommendations",
 ]
 
 const lsaFeatures = [
   "Google Guaranteed & Screened badge setup",
-  "Profile optimization for max visibility",
-  "Lead dispute and credit management",
-  "Weekly budget monitoring",
-  "Review response management",
-  "Competitor analysis",
+  "Profile optimization for maximum local visibility",
+  "Bid management & budget optimization",
+  "Lead dispute & credit recovery management",
+  "Review generation & response handling",
+  "Competitor analysis & positioning reports",
 ]
 
 const sectionVariants: Variants = {
@@ -36,8 +36,8 @@ export function LeadGen() {
             More Leads. Less Wasted Spend.
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
-            We manage your Google Ads and Local Service Ads so you can focus on
-            running your business — not your ad account.
+            We manage your Google Ads and Local Service Ads so every dollar
+            works harder and every lead costs less.
           </p>
         </div>
 
@@ -56,12 +56,12 @@ export function LeadGen() {
                 Google Ads
               </div>
               <h3 className="text-2xl font-bold mb-2">
-                PPC Campaign Management
+                Google Ads Management
               </h3>
               <p className="text-muted-foreground">
-                We build and optimize campaigns that reach your ideal customers
-                at the moment they're searching — driving qualified traffic that
-                converts.
+                We build and manage campaigns that reach your ideal customers at
+                the exact moment they're searching — driving qualified traffic
+                that converts into real business.
               </p>
             </div>
             <ul className="space-y-3">
@@ -77,7 +77,7 @@ export function LeadGen() {
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-md border border-white/20 px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-white/10 transition-colors"
               >
-                Start a Campaign
+                Launch a Campaign
               </a>
             </div>
           </motion.div>
@@ -97,12 +97,12 @@ export function LeadGen() {
                 Local Service Ads
               </div>
               <h3 className="text-2xl font-bold mb-2">
-                LSA Management
+                Dominate Local Search
               </h3>
               <p className="text-muted-foreground">
-                Local Service Ads appear above all other search results.
-                We handle verification, optimization, and ongoing management
-                so you dominate local search.
+                Local Service Ads appear above everything else in search — above
+                regular ads, above maps. We handle your entire LSA presence so
+                you capture every local lead before your competitors do.
               </p>
             </div>
             <ul className="space-y-3">
@@ -118,7 +118,7 @@ export function LeadGen() {
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-md border border-white/20 px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-white/10 transition-colors"
               >
-                Get on Top of Local Search
+                Get to the Top of Local Search
               </a>
             </div>
           </motion.div>

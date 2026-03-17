@@ -16,26 +16,27 @@ export function SplineSceneBasic() {
         {/* Left content */}
         <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-            Software Built
+            We Build the Systems
             <br />
-            for Business
+            That Grow Your Business
           </h1>
           <p className="mt-4 text-neutral-300 max-w-lg">
-            RichnowSolutions designs and builds custom software that solves real
-            business problems — and drives growth with expert ad management.
+            Automation, lead generation, and custom software — all under one
+            roof. RichnowCompany is the growth partner for businesses that
+            refuse to stay stuck.
           </p>
           <div className="mt-6 flex gap-3">
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-md bg-white text-black px-5 py-2.5 text-sm font-semibold hover:bg-white/90 transition-colors"
             >
-              Get a Free Quote
+              Get a Free Strategy Call
             </a>
             <a
               href="#services"
               className="inline-flex items-center gap-2 rounded-md border border-white/20 text-white px-5 py-2.5 text-sm font-semibold hover:bg-white/10 transition-colors"
             >
-              Our Services
+              See What We Do
             </a>
           </div>
         </div>

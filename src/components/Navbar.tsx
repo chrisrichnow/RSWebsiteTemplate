@@ -16,9 +16,9 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <a href="#" className="flex items-center gap-3">
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Richnow<span className="text-white/60">Solutions</span>
+            Richnow<span className="text-white/60">Company</span>
           </span>
         </a>
 
@@ -41,7 +41,7 @@ export function Navbar() {
             href="#contact"
             className="inline-flex items-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 text-sm font-medium transition-colors"
           >
-            Get a Free Quote
+            Free Strategy Call
           </a>
         </div>
 
@@ -81,7 +81,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="inline-flex w-full items-center justify-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 text-sm font-medium transition-colors"
               >
-                Get a Free Quote
+                Free Strategy Call
               </a>
             </div>
           </motion.div>

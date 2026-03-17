@@ -1,30 +1,30 @@
 import { motion, type Variants } from "framer-motion"
-import { Globe, Smartphone, Zap, LayoutDashboard } from "lucide-react"
+import { MessageSquareMore, UserCheck, Mail, GitBranch } from "lucide-react"
 
-const solutions = [
+const automations = [
   {
-    icon: Globe,
-    title: "Web Applications",
+    icon: MessageSquareMore,
+    title: "AI Chatbot Deployments",
     description:
-      "Full-stack web apps built with modern frameworks — fast, secure, and designed to scale as your business grows.",
+      "Chatbots deployed on your website, app, or messaging platforms — answering questions and capturing leads around the clock.",
   },
   {
-    icon: Smartphone,
-    title: "Mobile Apps",
+    icon: UserCheck,
+    title: "Lead Qualification AI",
     description:
-      "iOS and Android apps that deliver seamless experiences and keep your customers engaged on every device.",
+      "Automatically score and qualify inbound leads using AI, so your sales team only talks to prospects who are ready to buy.",
   },
   {
-    icon: Zap,
-    title: "Business Automation",
+    icon: Mail,
+    title: "Email & SMS Automation",
     description:
-      "Eliminate repetitive tasks with custom automation. Save hours every week and reduce costly manual errors.",
+      "Intelligent follow-up sequences that nurture leads, re-engage past clients, and convert cold contacts — all on autopilot.",
   },
   {
-    icon: LayoutDashboard,
-    title: "SaaS Platforms",
+    icon: GitBranch,
+    title: "Process Workflow Bots",
     description:
-      "End-to-end SaaS product development — from MVP to production-ready platform with billing and user management.",
+      "Connect your tools, automate your processes, and eliminate manual data entry with multi-step AI workflows built for your exact business.",
   },
 ]
 
@@ -46,25 +46,39 @@ export function SoftwareSolutions() {
           {/* Left: copy */}
           <div>
             <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm text-muted-foreground mb-4">
-              Software Solutions
+              AI Automation
             </span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-              Any Software.
+              AI That Works
               <br />
               <span className="bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">
-                Built for Your Business.
+                While You Sleep.
               </span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              We don't use templates or off-the-shelf products. Every solution is
-              engineered specifically for how your business operates — giving you
-              a genuine competitive advantage.
+              Stop trading hours for dollars. We build AI systems that handle
+              your repetitive tasks, qualify your leads, and nurture your
+              customers — freeing you to focus on what actually moves the needle.
             </p>
+            <div className="flex flex-col gap-3 text-sm text-muted-foreground mb-8">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-green-400" />
+                Average 15+ hours saved per week per client
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-green-400" />
+                Deployments live within days, not months
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-green-400" />
+                Works with your existing tools and stack
+              </div>
+            </div>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-md bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-white/90 transition-colors"
             >
-              Discuss Your Project
+              Automate My Business
             </a>
           </div>
 
@@ -76,17 +90,17 @@ export function SoftwareSolutions() {
             viewport={{ once: true, margin: "-80px" }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-5"
           >
-            {solutions.map((s) => (
+            {automations.map((a) => (
               <motion.div
-                key={s.title}
+                key={a.title}
                 variants={itemVariants}
                 className="rounded-xl border border-border bg-card p-5 hover:border-white/30 transition-colors duration-300"
               >
                 <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">
-                  <s.icon className="h-5 w-5 text-white" />
+                  <a.icon className="h-5 w-5 text-white" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">{s.title}</h3>
-                <p className="text-sm text-muted-foreground">{s.description}</p>
+                <h3 className="font-semibold text-foreground mb-1">{a.title}</h3>
+                <p className="text-sm text-muted-foreground">{a.description}</p>
               </motion.div>
             ))}
           </motion.div>

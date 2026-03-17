@@ -9,24 +9,24 @@ const plans = [
   {
     id: "starter",
     name: "Starter",
-    description: "solo / freelancer",
+    description: "solo / small business",
     monthlyPrice: 8.99,
     yearlyPrice: 6.99,
     features: [
-      "1 Active Project",
-      "Google Ads Management",
+      "1 Automation or Ad Campaign",
+      "AI Chatbot Setup (basic)",
       "Monthly Performance Report",
     ],
   },
   {
     id: "growth",
     name: "Growth",
-    description: "small business",
+    description: "growing business",
     monthlyPrice: 12.99,
     yearlyPrice: 9.99,
     features: [
-      "Up to 3 Active Projects",
-      "Google Ads + LSA Management",
+      "3 Automations + Full Ad Management",
+      "CRM Integration",
       "Bi-Weekly Strategy Calls",
     ],
   },
@@ -37,9 +37,9 @@ const plans = [
     monthlyPrice: 24.99,
     yearlyPrice: 19.99,
     features: [
-      "Unlimited Projects",
-      "Full Ad Suite Management",
-      "Dedicated Account Manager",
+      "Unlimited Automations & Campaigns",
+      "Full AI Suite + Ad Management",
+      "Dedicated AI Strategist",
     ],
   },
 ];

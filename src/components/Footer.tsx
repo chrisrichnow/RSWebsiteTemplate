@@ -4,10 +4,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Richnow<span className="text-white/60">Solutions</span>
+            Richnow<span className="text-white/60">Company</span>
           </span>
           <p className="mt-1 text-sm text-muted-foreground max-w-xs">
-            Custom software & lead generation services for growing businesses.
+            Automation, lead generation, and software solutions for growing businesses.
           </p>
         </div>
 
@@ -19,7 +19,7 @@ export function Footer() {
         </nav>
 
         <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} RichnowSolutions. All rights reserved.
+          © {new Date().getFullYear()} RichnowCompany. All rights reserved.
         </p>
       </div>
     </footer>
