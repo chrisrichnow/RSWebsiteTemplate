@@ -1,30 +1,38 @@
 import { motion, type Variants } from "framer-motion"
-import { MessageSquareMore, UserCheck, Mail, GitBranch } from "lucide-react"
+import { Palette, Search, Smartphone, Rocket } from "lucide-react"
 
-const automations = [
+const features = [
   {
-    icon: MessageSquareMore,
-    title: "AI Chatbot Deployments",
+    icon: Palette,
+    iconBg: "bg-blue-500/15",
+    iconColor: "text-blue-400",
+    title: "Custom Web Design",
     description:
-      "Chatbots deployed on your website, app, or messaging platforms — answering questions and capturing leads around the clock.",
+      "No templates, no drag-and-drop builders. Every site is hand-coded around your brand, your market, and your goals.",
   },
   {
-    icon: UserCheck,
-    title: "Lead Qualification AI",
+    icon: Search,
+    iconBg: "bg-green-500/15",
+    iconColor: "text-green-400",
+    title: "Google-Ready SEO",
     description:
-      "Automatically score and qualify inbound leads using AI, so your sales team only talks to prospects who are ready to buy.",
+      "On-page SEO is baked in from the start — so your site is ready to rank the moment it goes live.",
   },
   {
-    icon: Mail,
-    title: "Email & SMS Automation",
+    icon: Smartphone,
+    iconBg: "bg-orange-500/15",
+    iconColor: "text-orange-400",
+    title: "Mobile-First Build",
     description:
-      "Intelligent follow-up sequences that nurture leads, re-engage past clients, and convert cold contacts — all on autopilot.",
+      "Over 70% of local searches happen on mobile. Every site we build looks and works perfectly on any device.",
   },
   {
-    icon: GitBranch,
-    title: "Process Workflow Bots",
+    icon: Rocket,
+    iconBg: "bg-purple-500/15",
+    iconColor: "text-purple-400",
+    title: "Fast Turnaround",
     description:
-      "Connect your tools, automate your processes, and eliminate manual data entry with multi-step AI workflows built for your exact business.",
+      "From kickoff to launch in 7–14 days. You get a real, professional website without the months-long wait.",
   },
 ]
 
@@ -45,40 +53,45 @@ export function SoftwareSolutions() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: copy */}
           <div>
-            <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm text-muted-foreground mb-4">
-              AI Automation
+            <span className="inline-block rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1 text-sm text-blue-400 mb-4">
+              Web Development
             </span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-              AI That Works
+              Your Business Deserves
               <br />
-              <span className="bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">
-                While You Sleep.
+              <span className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
+                a Website That Works.
               </span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Stop trading hours for dollars. We build AI systems that handle
-              your repetitive tasks, qualify your leads, and nurture your
-              customers — freeing you to focus on what actually moves the needle.
+              Most service businesses lose customers every day because their
+              online presence is outdated, missing, or impossible to find. We
+              change that.
+              <br /><br />
+              We build clean, professional websites that are fast,
+              mobile-friendly, and optimized to show up on Google — so when
+              someone in your area searches for what you do, you're the one
+              they call.
             </p>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground mb-8">
               <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-green-400" />
-                Average 15+ hours saved per week per client
+                <span className="h-2 w-2 rounded-full bg-blue-400" />
+                Custom design tailored to your brand and service area
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-green-400" />
-                Deployments live within days, not months
+                <span className="h-2 w-2 rounded-full bg-blue-400" />
+                Built for Google — on-page SEO included from day one
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-green-400" />
-                Works with your existing tools and stack
+                <span className="h-2 w-2 rounded-full bg-blue-400" />
+                Delivered in 7–14 days, not months
               </div>
             </div>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-md bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 rounded-md bg-blue-500 text-white px-6 py-3 text-sm font-semibold hover:bg-blue-600 transition-colors"
             >
-              Automate My Business
+              Get My Free Website Preview
             </a>
           </div>
 
@@ -90,17 +103,17 @@ export function SoftwareSolutions() {
             viewport={{ once: true, margin: "-80px" }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-5"
           >
-            {automations.map((a) => (
+            {features.map((f) => (
               <motion.div
-                key={a.title}
+                key={f.title}
                 variants={itemVariants}
-                className="rounded-xl border border-border bg-card p-5 hover:border-white/30 transition-colors duration-300"
+                className="rounded-xl border border-border bg-card p-5 hover:border-white/20 transition-colors duration-300"
               >
-                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">
-                  <a.icon className="h-5 w-5 text-white" />
+                <div className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg ${f.iconBg}`}>
+                  <f.icon className={`h-5 w-5 ${f.iconColor}`} />
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">{a.title}</h3>
-                <p className="text-sm text-muted-foreground">{a.description}</p>
+                <h3 className="font-semibold text-foreground mb-1">{f.title}</h3>
+                <p className="text-sm text-muted-foreground">{f.description}</p>
               </motion.div>
             ))}
           </motion.div>

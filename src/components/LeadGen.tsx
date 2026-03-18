@@ -36,8 +36,7 @@ export function LeadGen() {
             More Leads. Less Wasted Spend.
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
-            We manage your Google Ads and Local Service Ads so every dollar
-            works harder and every lead costs less.
+            We build the web presence. You handle the work.
           </p>
         </div>
 

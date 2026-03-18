@@ -1,35 +1,43 @@
 import { motion, type Variants } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Bot, Zap, TrendingUp, Database } from "lucide-react"
+import { Monitor, MapPin, Target, Wrench } from "lucide-react"
 
 const services = [
   {
-    icon: Bot,
-    title: "AI Chatbots & Assistants",
+    icon: Monitor,
+    iconBg: "bg-blue-500/15",
+    iconColor: "text-blue-400",
+    title: "Website Design & Development",
     description:
-      "Deploy intelligent AI agents that handle customer service, qualify leads, and close sales — 24/7, without lifting a finger.",
-    bullets: ["Custom-trained on your business", "Website & WhatsApp integration", "Lead capture & qualification", "Handoff to human agents"],
+      "Custom, conversion-focused websites built for service businesses. Mobile-first, fast-loading, and ready to rank on Google from day one.",
+    bullets: ["Hand-coded, no page builders", "Mobile-first responsive design", "Fast load times & clean code", "Built to convert visitors to leads"],
   },
   {
-    icon: Zap,
-    title: "Workflow Automation",
+    icon: MapPin,
+    iconBg: "bg-green-500/15",
+    iconColor: "text-green-400",
+    title: "Local SEO & Google Presence",
     description:
-      "Eliminate manual work and human error with custom automation pipelines built on Make, Zapier, n8n, and AI.",
-    bullets: ["End-to-end process automation", "Multi-app integrations", "Smart decision logic", "Real-time error monitoring"],
+      "Get found when customers search. We optimize your Google Business Profile, build local citations, and set up the technical foundation for long-term ranking.",
+    bullets: ["Google Business Profile setup", "Local citation building", "On-page SEO from day one", "Technical SEO foundation"],
   },
   {
-    icon: TrendingUp,
-    title: "Google Ads & LSA Management",
+    icon: Target,
+    iconBg: "bg-orange-500/15",
+    iconColor: "text-orange-400",
+    title: "Lead Generation Funnels",
     description:
-      "Data-driven PPC and Local Service Ads that put your business in front of buyers at the exact moment they're ready to convert.",
-    bullets: ["Search, Display & YouTube", "Google Guaranteed LSA setup", "AI-optimized bidding", "Full ROI reporting"],
+      "Turn website visitors into booked appointments. We build landing pages, contact forms, and call-to-action flows designed to generate real, qualified leads.",
+    bullets: ["High-converting landing pages", "Contact & booking forms", "CTA flow optimization", "Lead tracking & reporting"],
   },
   {
-    icon: Database,
-    title: "CRM & Custom Software",
+    icon: Wrench,
+    iconBg: "bg-purple-500/15",
+    iconColor: "text-purple-400",
+    title: "Ongoing Support & Maintenance",
     description:
-      "CRM integrations, custom web apps, and bespoke software built around your exact workflow — no off-the-shelf compromises.",
-    bullets: ["HubSpot, GHL, Salesforce", "Custom web & mobile apps", "API integrations", "SaaS product development"],
+      "Your website should never be stale or broken. We handle updates, hosting, security, and performance so you can focus on running your business.",
+    bullets: ["Regular content updates", "Security & uptime monitoring", "Performance optimization", "Priority support included"],
   },
 ]
 
@@ -48,7 +56,7 @@ export function Services() {
     <section id="services" className="py-24 px-6">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm text-muted-foreground mb-4">
+          <span className="inline-block rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1 text-sm text-blue-400 mb-4">
             What We Do
           </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -69,10 +77,10 @@ export function Services() {
         >
           {services.map((service) => (
             <motion.div key={service.title} variants={cardVariants}>
-              <Card className="h-full bg-card border-border hover:border-white/30 transition-colors duration-300">
+              <Card className="h-full bg-card border-border hover:border-white/20 transition-colors duration-300">
                 <CardHeader>
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-white/10">
-                    <service.icon className="h-6 w-6 text-white" />
+                  <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${service.iconBg}`}>
+                    <service.icon className={`h-6 w-6 ${service.iconColor}`} />
                   </div>
                   <CardTitle className="text-lg">{service.title}</CardTitle>
                   <CardDescription className="text-sm">{service.description}</CardDescription>
@@ -81,7 +89,7 @@ export function Services() {
                   <ul className="space-y-2">
                     {service.bullets.map((b) => (
                       <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <span className="h-1.5 w-1.5 rounded-full bg-white/60 flex-shrink-0" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-blue-400/60 flex-shrink-0" />
                         {b}
                       </li>
                     ))}
