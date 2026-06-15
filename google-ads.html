@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Ads & Local Service Ads Management | Richnow Solutions</title>
+  <meta name="description" content="We set up and manage Google Ads and Local Service Ads so the right customers find you the moment they're ready to buy. Get more calls with Richnow Solutions.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #07070e;
+      --bg-card:     #11111f;
+      --bg-card-h:   #16162b;
+      --border:      rgba(255,255,255,0.08);
+      --border-lt:   rgba(124,58,237,0.40);
+      --text:        #f2f0fa;
+      --muted:       #8a87a8;
+      --muted-lt:    #b5b2cf;
+      --g3:          #06b6d4;
+      --grad:        linear-gradient(120deg, #7c3aed 0%, #4f46e5 50%, #06b6d4 100%);
+      --grad-soft:   linear-gradient(120deg, rgba(124,58,237,0.16), rgba(6,182,212,0.16));
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+      line-height: 1.65; min-height: 100vh; overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 15% -5%, rgba(124,58,237,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 45% at 90% 8%, rgba(6,182,212,0.16) 0%, transparent 60%);
+    }
+    .wrap { max-width: 940px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+    nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(7,7,14,0.72); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 940px; margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: Georgia, serif; font-size: 20px; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+    .logo em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn {
+      display: inline-block; font-size: 13px; font-weight: 600; color: #fff; text-decoration: none;
+      padding: 11px 20px; border-radius: 8px; background: var(--grad); border: none; cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; box-shadow: 0 6px 22px rgba(79,70,229,0.30);
+    }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 10px 30px rgba(79,70,229,0.45); }
+    .btn-lg { font-size: 15px; padding: 15px 30px; border-radius: 10px; }
+    .btn-ghost { background: transparent; border: 1px solid var(--border-lt); box-shadow: none; color: var(--text); }
+    .btn-ghost:hover { background: rgba(124,58,237,0.10); box-shadow: none; }
+
+    header.hero { padding: 84px 0 72px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted-lt); padding: 7px 16px; border: 1px solid var(--border);
+      border-radius: 100px; background: var(--grad-soft); margin-bottom: 26px;
+      opacity: 0; animation: rise 0.7s 0.05s ease forwards;
+    }
+    .eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #06b6d4; box-shadow: 0 0 10px #06b6d4; }
+    h1 {
+      font-family: Georgia, 'Times New Roman', serif; font-size: clamp(36px, 6.5vw, 68px); font-weight: normal;
+      line-height: 1.04; letter-spacing: -0.03em; max-width: 17ch; margin: 0 auto;
+      opacity: 0; animation: rise 0.7s 0.15s ease forwards;
+    }
+    h1 em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .subtitle { font-size: clamp(16px, 2.4vw, 20px); color: var(--muted-lt); max-width: 58ch; margin: 24px auto 0; opacity: 0; animation: rise 0.7s 0.28s ease forwards; }
+    .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; opacity: 0; animation: rise 0.7s 0.4s ease forwards; }
+    .hero-note { font-size: 12px; color: var(--muted); margin-top: 18px; opacity: 0; animation: rise 0.7s 0.5s ease forwards; }
+
+    section { padding: 0 0 88px; }
+    .section-head { max-width: 680px; margin: 0 auto 44px; text-align: center; }
+    .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--g3); margin-bottom: 14px; }
+    h2 { font-family: Georgia, serif; font-size: clamp(26px, 4.2vw, 40px); font-weight: normal; line-height: 1.12; letter-spacing: -0.02em; }
+    h2 em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .section-sub { font-size: clamp(15px, 2vw, 17px); color: var(--muted-lt); margin-top: 16px; }
+
+    .pains { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 760px; margin: 0 auto; }
+    @media (max-width: 580px) { .pains { grid-template-columns: 1fr; } }
+    .pain { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; opacity: 0; }
+    .pain h3 { font-family: Georgia, serif; font-size: 17px; font-weight: normal; margin-bottom: 7px; color: var(--text); }
+    .pain p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    @media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 28px; position: relative; overflow: hidden; transition: background 0.25s, border-color 0.25s, transform 0.25s; opacity: 0; }
+    .card:hover { background: var(--bg-card-h); border-color: var(--border-lt); transform: translateX(5px); }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+    .card:hover::before { transform: scaleX(1); }
+    .card h3 { font-family: Georgia, serif; font-size: clamp(19px, 2.8vw, 23px); font-weight: normal; margin-bottom: 10px; }
+    .card p { font-size: 14.5px; color: var(--muted-lt); line-height: 1.7; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    @media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
+    .step { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; opacity: 0; }
+    .step-n { font-family: Georgia, serif; font-size: 14px; color: var(--g3); letter-spacing: 0.1em; margin-bottom: 14px; }
+    .step h3 { font-family: Georgia, serif; font-size: 19px; font-weight: normal; margin-bottom: 9px; }
+    .step p { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+    .faq { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    details { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 4px 24px; opacity: 0; }
+    details[open] { border-color: var(--border-lt); }
+    summary { font-family: Georgia, serif; font-size: 17px; color: var(--text); padding: 18px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; color: var(--g3); font-size: 22px; flex-shrink: 0; transition: transform 0.2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { font-size: 14.5px; color: var(--muted-lt); line-height: 1.72; padding: 0 0 20px; }
+
+    .final { text-align: center; border: 1px solid var(--border-lt); border-radius: 20px; padding: 60px 40px; background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(124,58,237,0.18), transparent 65%), var(--bg-card); opacity: 0; }
+    @media (max-width: 580px) { .final { padding: 44px 24px; } }
+    .final h2 { max-width: 20ch; margin: 0 auto; }
+    .final p { color: var(--muted-lt); max-width: 50ch; margin: 16px auto 0; font-size: 16px; }
+    .contact-row { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 26px; font-size: 14px; }
+    .contact-row a { color: var(--muted-lt); text-decoration: none; transition: color 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .contact-row a:hover { color: var(--text); }
+    .contact-row a strong { color: var(--text); font-weight: 600; }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 0 60px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .foot-brand { font-family: Georgia, serif; font-size: 16px; }
+    .foot-brand em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .foot-links { font-size: 13px; color: var(--muted); display: flex; gap: 20px; flex-wrap: wrap; }
+    .foot-links a { color: var(--muted-lt); text-decoration: none; }
+    .foot-links a:hover { color: var(--text); }
+
+    .reveal { opacity: 0; }
+    .reveal.in { animation: rise 0.6s ease forwards; }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .reveal, .card, .step, .pain, details, .final { opacity: 1 !important; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">Richnow <em>Solutions</em></a>
+      <a href="#contact" class="btn">Book a Free Consultation</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <header class="hero">
+      <div class="eyebrow"><span></span> Google Ads &amp; Local Service Ads</div>
+      <h1>Show up first — the moment someone <em>needs you</em>.</h1>
+      <p class="subtitle">We set up and manage Google Ads and Local Service Ads so the right customers find you exactly when they're ready to buy — and every dollar is tracked, not guessed.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-lg">Book a Free Consultation</a>
+        <a href="#how" class="btn btn-lg btn-ghost">How It Works</a>
+      </div>
+      <p class="hero-note">Free consultation — an honest look at whether ads make sense for you. No pitch.</p>
+    </header>
+
+    <section id="problem">
+      <div class="section-head reveal">
+        <div class="section-label">The Problem</div>
+        <h2>Most ad budgets get <em>wasted</em></h2>
+        <p class="section-sub">Running ads is easy. Running ads that actually bring in customers is where most businesses lose money.</p>
+      </div>
+      <div class="pains">
+        <div class="pain reveal" data-delay="0"><h3>You're burning budget</h3><p>Clicks come in but calls don't. You're paying for traffic that was never going to become a customer.</p></div>
+        <div class="pain reveal" data-delay="0.06"><h3>You don't show up</h3><p>You boosted a post or set up an ad once, but you're nowhere to be found when people actually search for your service.</p></div>
+        <div class="pain reveal" data-delay="0.12"><h3>You can't tell what works</h3><p>No tracking means no idea which ads, keywords, or dollars are actually producing leads — so you can't improve.</p></div>
+        <div class="pain reveal" data-delay="0.18"><h3>Competitors get the calls</h3><p>They're sitting at the top of the results with Local Service Ads and the Google Guaranteed badge while you scroll below.</p></div>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <div class="section-head reveal">
+        <div class="section-label">What We Manage</div>
+        <h2>Ads that bring in <em>real customers</em></h2>
+      </div>
+      <div class="cards">
+        <div class="card reveal" data-delay="0"><h3>Google Ads setup & management</h3><p>We research the right keywords, write the ads, build the landing pages, and manage bids so you get calls — not just clicks.</p></div>
+        <div class="card reveal" data-delay="0.08"><h3>Local Service Ads</h3><p>We get you set up with Local Service Ads and the Google Guaranteed badge, putting you at the very top where local buyers look first.</p></div>
+        <div class="card reveal" data-delay="0.16"><h3>Conversion tracking</h3><p>Every call and form is tracked back to its source, so you know your real cost per lead and exactly what's working.</p></div>
+        <div class="card reveal" data-delay="0.24"><h3>A budget that works for you</h3><p>We start where you're comfortable, prove the return, then scale what's profitable. No pressure to overspend.</p></div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="section-head reveal">
+        <div class="section-label">How It Works</div>
+        <h2>From setup to <em>steady calls</em></h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal" data-delay="0"><div class="step-n">01</div><h3>Strategy</h3><p>We learn your business and market, then build a plan around the keywords and ads most likely to bring you customers.</p></div>
+        <div class="step reveal" data-delay="0.1"><div class="step-n">02</div><h3>Launch</h3><p>We build the campaigns, landing pages, and tracking, then go live — targeting the people ready to buy what you offer.</p></div>
+        <div class="step reveal" data-delay="0.2"><div class="step-n">03</div><h3>Optimize & Scale</h3><p>We watch the numbers, cut what wastes money, and double down on what brings the best leads — month after month.</p></div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head reveal">
+        <div class="section-label">Questions</div>
+        <h2>Straight <em>answers</em></h2>
+      </div>
+      <div class="faq">
+        <details class="reveal" data-delay="0"><summary>What kind of budget do I need?</summary><p>It depends on your industry and area, but many local businesses start in the few-hundred-to-low-thousands per month range. We'll recommend a realistic starting point during the consultation and scale only once it's working.</p></details>
+        <details class="reveal" data-delay="0.05"><summary>What's the difference between Google Ads and Local Service Ads?</summary><p>Google Ads are the text ads at the top of search results, charged per click. Local Service Ads sit above those with the Google Guaranteed badge and you pay per lead, not per click. Many businesses benefit from both — we'll advise which fits you.</p></details>
+        <details class="reveal" data-delay="0.1"><summary>How soon will I get calls?</summary><p>Paid ads can start generating leads within days of going live — that's the advantage over SEO. The first few weeks are about gathering data and dialing in what converts best.</p></details>
+        <details class="reveal" data-delay="0.15"><summary>Do you manage it ongoing or just set it up?</summary><p>Both options are available. Ongoing management is where the real gains come from — campaigns need regular optimization to keep your cost per lead low and your calls high.</p></details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="final reveal">
+        <h2>Let's get you to the <em>top of Google</em>.</h2>
+        <p>Book a free consultation and get an honest look at whether paid ads make sense for your business — and what kind of return to realistically expect.</p>
+        <div class="hero-cta">
+          <a href="mailto:team@richnowsolutions.com?subject=Google%20Ads%20-%20Free%20Consultation" class="btn btn-lg">Book a Free Consultation</a>
+        </div>
+        <div class="contact-row">
+          <a href="mailto:team@richnowsolutions.com"><strong>Email</strong> team@richnowsolutions.com</a>
+          <a href="tel:+18322899111"><strong>Call</strong> (832) 289-9111</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="wrap">
+    <footer>
+      <div class="foot-brand">Richnow <em>Solutions</em></div>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/lead-generation">Lead Gen</a>
+        <a href="/web-development">Websites</a>
+        <a href="/seo">SEO</a>
+        <a href="/custom-software">Software</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.style.animationDelay = (parseFloat(el.dataset.delay) || 0) + 's';
+          el.classList.add('in');
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

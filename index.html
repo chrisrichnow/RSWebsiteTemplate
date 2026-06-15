@@ -325,6 +325,11 @@
     }
     .card-tag--lead { color: #c4b5fd; border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.10); }
 
+    .card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; font-size: 13px; font-weight: 600; color: #c4b5fd; text-decoration: none; transition: gap 0.2s ease, color 0.2s ease; }
+    .card-link:hover { gap: 11px; color: var(--text); }
+    .card-link span { transition: transform 0.2s ease; }
+    .card:hover .card-link span { transform: translateX(3px); }
+
     .card h3 {
       font-family: Georgia, serif;
       font-size: clamp(20px, 3vw, 25px);
@@ -587,6 +592,7 @@
             <li>Contact forms and call tracking</li>
             <li>Clear calls-to-action that drive inquiries</li>
           </ul>
+          <a href="/lead-generation" class="card-link">Learn more <span>&rarr;</span></a>
         </div>
 
         <div class="card reveal" data-delay="0.08">
@@ -598,6 +604,7 @@
             <li>Mobile-first and fast-loading</li>
             <li>Built to turn visitors into leads</li>
           </ul>
+          <a href="/web-development" class="card-link">Learn more <span>&rarr;</span></a>
         </div>
 
         <div class="card reveal" data-delay="0.16">
@@ -609,6 +616,7 @@
             <li>Google Business Profile optimization</li>
             <li>Local search and map visibility</li>
           </ul>
+          <a href="/seo" class="card-link">Learn more <span>&rarr;</span></a>
         </div>
 
         <div class="card reveal" data-delay="0.24">
@@ -620,6 +628,7 @@
             <li>Local Service Ads (Google Guaranteed)</li>
             <li>Tracking so you see what works</li>
           </ul>
+          <a href="/google-ads" class="card-link">Learn more <span>&rarr;</span></a>
         </div>
 
       </div>
@@ -641,7 +650,7 @@
           <li>CRM &amp; database systems</li>
           <li>API &amp; integrations</li>
         </ul>
-        <a href="#contact" class="btn btn-lg">Talk Through Your Idea</a>
+        <a href="/custom-software" class="btn btn-lg">Explore Custom Software</a>
       </div>
     </section>
 
