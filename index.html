@@ -1,13 +1,748 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/Screenshot 2026-03-17 023646.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RichnowCompany</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Richnow Solutions — More Customers, Better Websites, Smarter Software</title>
+  <meta name="description" content="Richnow Solutions helps local businesses get found and chosen online — lead generation, websites, SEO, and Google Ads under one roof. Plus custom software when you're ready to scale.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #07070e;
+      --bg-2:        #0a0a14;
+      --bg-card:     #11111f;
+      --bg-card-h:   #16162b;
+      --border:      rgba(255,255,255,0.08);
+      --border-lt:   rgba(124,58,237,0.40);
+      --text:        #f2f0fa;
+      --muted:       #8a87a8;
+      --muted-lt:    #b5b2cf;
+      --g1:          #7c3aed;
+      --g2:          #4f46e5;
+      --g3:          #06b6d4;
+      --grad:        linear-gradient(120deg, #7c3aed 0%, #4f46e5 50%, #06b6d4 100%);
+      --grad-soft:   linear-gradient(120deg, rgba(124,58,237,0.16), rgba(6,182,212,0.16));
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Ambient gradient glows */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 15% -5%, rgba(124,58,237,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 45% at 90% 8%, rgba(6,182,212,0.16) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(7,7,14,0.72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: normal;
+    }
+    .logo em {
+      font-style: normal;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted-lt);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    @media (max-width: 720px) { .nav-links .nav-link { display: none; } }
+
+    .btn {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      background: var(--grad);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      box-shadow: 0 6px 22px rgba(79,70,229,0.30);
+    }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 10px 30px rgba(79,70,229,0.45); }
+
+    .btn-lg { font-size: 15px; padding: 15px 30px; border-radius: 10px; }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border-lt);
+      box-shadow: none;
+      color: var(--text);
+    }
+    .btn-ghost:hover { background: rgba(124,58,237,0.10); box-shadow: none; }
+
+    /* ── HERO ── */
+    header.hero {
+      padding: 96px 0 80px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-lt);
+      padding: 7px 16px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: var(--grad-soft);
+      margin-bottom: 26px;
+      opacity: 0;
+      animation: rise 0.7s 0.05s ease forwards;
+    }
+    .eyebrow span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #06b6d4; flex-shrink: 0;
+      box-shadow: 0 0 10px #06b6d4;
+    }
+
+    h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(38px, 7vw, 76px);
+      font-weight: normal;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      max-width: 16ch;
+      margin: 0 auto;
+      opacity: 0;
+      animation: rise 0.7s 0.15s ease forwards;
+    }
+    h1 em {
+      font-style: normal;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: clamp(16px, 2.4vw, 20px);
+      color: var(--muted-lt);
+      max-width: 60ch;
+      margin: 26px auto 0;
+      line-height: 1.6;
+      opacity: 0;
+      animation: rise 0.7s 0.28s ease forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 38px;
+      opacity: 0;
+      animation: rise 0.7s 0.4s ease forwards;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 18px;
+      opacity: 0;
+      animation: rise 0.7s 0.5s ease forwards;
+    }
+
+    /* ── DIFFERENTIATOR STRIP ── */
+    .strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--border);
+      margin-bottom: 96px;
+    }
+    @media (max-width: 720px) { .strip { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 420px) { .strip { grid-template-columns: 1fr; } }
+
+    .strip-cell {
+      background: var(--bg-card);
+      padding: 26px 24px;
+      text-align: center;
+    }
+    .strip-n {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .strip-l {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* ── SECTION SHELL ── */
+    section { padding: 0 0 96px; }
+
+    .section-head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--g3);
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 44px);
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    h2 em {
+      font-style: normal;
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-sub {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--muted-lt);
+      margin-top: 18px;
+      line-height: 1.65;
+    }
+
+    /* ── SERVICE CARDS ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 30px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+      opacity: 0;
+    }
+    .card:hover {
+      background: var(--bg-card-h);
+      border-color: var(--border-lt);
+      transform: translateX(5px);
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--g3);
+      padding: 5px 11px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .card-tag--lead { color: #c4b5fd; border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.10); }
+
+    .card h3 {
+      font-family: Georgia, serif;
+      font-size: clamp(20px, 3vw, 25px);
+      font-weight: normal;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .card p {
+      font-size: 14.5px;
+      color: var(--muted-lt);
+      line-height: 1.72;
+    }
+    .card ul {
+      list-style: none;
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .card li {
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 22px;
+      position: relative;
+    }
+    .card li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 11px; height: 11px;
+      border-radius: 3px;
+      background: var(--grad);
+      opacity: 0.85;
+    }
+
+    /* ── SOFTWARE / UPSELL BANNER ── */
+    .software {
+      border: 1px solid var(--border-lt);
+      border-radius: 20px;
+      padding: 56px 48px;
+      background:
+        radial-gradient(ellipse 80% 120% at 100% 0%, rgba(6,182,212,0.14), transparent 60%),
+        radial-gradient(ellipse 80% 120% at 0% 100%, rgba(124,58,237,0.16), transparent 60%),
+        var(--bg-card);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+    }
+    @media (max-width: 580px) { .software { padding: 40px 26px; } }
+
+    .software .card-tag { color: #67e8f9; border-color: rgba(6,182,212,0.4); background: rgba(6,182,212,0.10); }
+    .software h2 { max-width: 18ch; }
+    .software p {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--muted-lt);
+      max-width: 58ch;
+      margin-top: 18px;
+      line-height: 1.7;
+    }
+    .software-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px 0 32px;
+    }
+    .software-list li {
+      font-size: 13px;
+      color: var(--muted-lt);
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* ── PROCESS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 720px) { .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 420px) { .steps { grid-template-columns: 1fr; } }
+
+    .step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      opacity: 0;
+    }
+    .step-n {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      color: var(--g3);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .step h3 {
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: normal;
+      margin-bottom: 9px;
+    }
+    .step p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ── AUDIENCE SPLIT ── */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 720px) { .split { grid-template-columns: 1fr; } }
+
+    .split-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 34px 30px;
+      opacity: 0;
+    }
+    .split-card h3 {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: normal;
+      margin-bottom: 6px;
+    }
+    .split-card .who { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g3); margin-bottom: 16px; }
+    .split-card p { font-size: 14px; color: var(--muted-lt); line-height: 1.7; }
+
+    /* ── FINAL CTA ── */
+    .final {
+      text-align: center;
+      border: 1px solid var(--border-lt);
+      border-radius: 20px;
+      padding: 64px 40px;
+      background:
+        radial-gradient(ellipse 70% 100% at 50% 0%, rgba(124,58,237,0.18), transparent 65%),
+        var(--bg-card);
+      opacity: 0;
+    }
+    @media (max-width: 580px) { .final { padding: 48px 24px; } }
+    .final h2 { max-width: 20ch; margin: 0 auto; }
+    .final p { color: var(--muted-lt); max-width: 52ch; margin: 18px auto 0; font-size: 16px; }
+    .final .hero-cta { margin-top: 32px; }
+
+    .contact-row {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      font-size: 14px;
+    }
+    .contact-row a {
+      color: var(--muted-lt);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contact-row a:hover { color: var(--text); }
+    .contact-row a strong { color: var(--text); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0 64px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      opacity: 0;
+      animation: rise 0.6s ease forwards;
+    }
+    @media (max-width: 520px) { footer { grid-template-columns: 1fr; text-align: center; } }
+
+    .foot-brand { font-family: Georgia, serif; font-size: 17px; }
+    .foot-brand em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .foot-tag { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .foot-contact { font-size: 13px; color: var(--muted-lt); line-height: 1.9; }
+    .foot-contact a { color: var(--muted-lt); text-decoration: none; }
+    .foot-contact a:hover { color: var(--text); }
+
+    /* ── ANIMATIONS ── */
+    .reveal { opacity: 0; }
+    .reveal.in { animation: rise 0.6s ease forwards; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes expand {
+      from { opacity: 0; transform: scaleX(0); }
+      to   { opacity: 1; transform: scaleX(1); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-12px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+      .reveal, .card, .step, .split-card, .software, .final, footer { opacity: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="logo">Richnow <em>Solutions</em></a>
+      <div class="nav-links">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#software" class="nav-link">Software</a>
+        <a href="#process" class="nav-link">How It Works</a>
+        <a href="#contact" class="btn">Book a Free Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap" id="top">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="eyebrow"><span></span> Websites · SEO · Ads · Software</div>
+      <h1>More customers, found through a website that actually <em>works</em>.</h1>
+      <p class="subtitle">
+        RichnowCompany builds the websites, search visibility, and ad campaigns that turn local searches into paying customers — all from one partner. And when you're ready to grow, we build the custom software to scale it.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-lg">Book a Free Consultation</a>
+        <a href="#services" class="btn btn-lg btn-ghost">See What We Do</a>
+      </div>
+      <p class="hero-note">Free consultation — an honest look at your online presence, no pitch.</p>
+    </header>
+
+    <!-- DIFFERENTIATOR STRIP -->
+    <div class="strip reveal">
+      <div class="strip-cell"><div class="strip-n">1</div><div class="strip-l">Partner for everything online</div></div>
+      <div class="strip-cell"><div class="strip-n">4</div><div class="strip-l">Ways we get you customers</div></div>
+      <div class="strip-cell"><div class="strip-n">100%</div><div class="strip-l">Built for your business — no templates</div></div>
+      <div class="strip-cell"><div class="strip-n">SEO</div><div class="strip-l">Included in every build</div></div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-head reveal">
+        <div class="section-label">The Growth Stack</div>
+        <h2>Everything that gets you <em>found and chosen</em> online</h2>
+        <p class="section-sub">Most businesses juggle a web designer, an SEO person, and an ads guy who never talk to each other. We handle all of it as one system, built around getting you more customers.</p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card reveal" data-delay="0">
+          <span class="card-tag card-tag--lead">Lead With This</span>
+          <h3>Lead Generation</h3>
+          <p>The goal isn't a website — it's customers. We build the funnels, landing pages, and contact flows that turn visitors and ad clicks into booked jobs and filled inboxes.</p>
+          <ul>
+            <li>High-converting landing pages</li>
+            <li>Contact forms and call tracking</li>
+            <li>Clear calls-to-action that drive inquiries</li>
+          </ul>
+        </div>
+
+        <div class="card reveal" data-delay="0.08">
+          <span class="card-tag">Foundation</span>
+          <h3>Website Development</h3>
+          <p>Custom, fast, conversion-focused websites built for your specific business — no templates, no shortcuts. The kind of site that makes customers trust you before they call.</p>
+          <ul>
+            <li>Custom design and development</li>
+            <li>Mobile-first and fast-loading</li>
+            <li>Built to turn visitors into leads</li>
+          </ul>
+        </div>
+
+        <div class="card reveal" data-delay="0.16">
+          <span class="card-tag">Get Found</span>
+          <h3>SEO &amp; Search Visibility</h3>
+          <p>People are searching for what you offer right now. We make sure you're the business they find — with on-page, technical, and local SEO included in every build.</p>
+          <ul>
+            <li>On-page and technical SEO</li>
+            <li>Google Business Profile optimization</li>
+            <li>Local search and map visibility</li>
+          </ul>
+        </div>
+
+        <div class="card reveal" data-delay="0.24">
+          <span class="card-tag">Accelerate</span>
+          <h3>Google Ads &amp; Local Service Ads</h3>
+          <p>When you need customers now, paid search delivers. We set up and manage Google Ads and Local Service Ads so the right people see you at the exact moment they're ready to buy.</p>
+          <ul>
+            <li>Google Ads setup and management</li>
+            <li>Local Service Ads (Google Guaranteed)</li>
+            <li>Tracking so you see what works</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOFTWARE -->
+    <section id="software">
+      <div class="software reveal">
+        <span class="card-tag">When You're Ready to Scale</span>
+        <h2>Need custom <em>software</em> built? We do that too.</h2>
+        <p>
+          Most agencies stop at marketing. We don't. When your business outgrows off-the-shelf tools, we build the custom software, automations, and AI-powered systems that run it — one partner who grows with you instead of handing you off.
+        </p>
+        <ul class="software-list">
+          <li>Custom web apps &amp; portals</li>
+          <li>Internal tools &amp; dashboards</li>
+          <li>Workflow automation</li>
+          <li>AI chatbots &amp; assistants</li>
+          <li>CRM &amp; database systems</li>
+          <li>API &amp; integrations</li>
+        </ul>
+        <a href="#contact" class="btn btn-lg">Talk Through Your Idea</a>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-head reveal">
+        <div class="section-label">How It Works</div>
+        <h2>From first call to <em>more customers</em></h2>
+        <p class="section-sub">A simple, no-pressure process. It starts with an honest conversation — not a contract.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal" data-delay="0">
+          <div class="step-n">01</div>
+          <h3>Free Consultation</h3>
+          <p>We review your current online presence and give you straight feedback on what's working and what's costing you customers.</p>
+        </div>
+        <div class="step reveal" data-delay="0.08">
+          <div class="step-n">02</div>
+          <h3>The Plan</h3>
+          <p>You get a clear plan — which services move the needle for your business, in what order, and what it costs. No surprises.</p>
+        </div>
+        <div class="step reveal" data-delay="0.16">
+          <div class="step-n">03</div>
+          <h3>We Build</h3>
+          <p>Website, SEO, ads, or software — built for your business specifically. You stay in the loop the whole way through.</p>
+        </div>
+        <div class="step reveal" data-delay="0.24">
+          <div class="step-n">04</div>
+          <h3>You Grow</h3>
+          <p>Launch, measure, and improve. We track the results so you can see the customers coming in — and scale what works.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE SPLIT -->
+    <section id="who">
+      <div class="section-head reveal">
+        <div class="section-label">Who We Work With</div>
+        <h2>Built for where you <em>are</em></h2>
+      </div>
+      <div class="split">
+        <div class="split-card reveal" data-delay="0">
+          <div class="who">Local &amp; Service Businesses</div>
+          <h3>Get more customers online</h3>
+          <p>You're great at what you do — you just need more people to find you. We build the website, SEO, and ad campaigns that bring in calls and bookings, so you can focus on the work, not the marketing.</p>
+        </div>
+        <div class="split-card reveal" data-delay="0.1">
+          <div class="who">Founders &amp; Growing Companies</div>
+          <h3>Build the tools to scale</h3>
+          <p>You have an idea or a process that off-the-shelf software can't handle. We design and build the custom software, automations, and AI tools to run it — like an in-house team, without the overhead.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="contact">
+      <div class="final reveal">
+        <h2>Let's get you <em>more customers</em>.</h2>
+        <p>Book a free consultation and get an honest look at your online presence — what's working, what isn't, and what it would take to fix it. No pitch, no pressure.</p>
+        <div class="hero-cta">
+          <a href="mailto:team@richnowsolutions.com?subject=Free%20Consultation%20Request" class="btn btn-lg">Book a Free Consultation</a>
+        </div>
+        <div class="contact-row">
+          <a href="mailto:team@richnowsolutions.com"><strong>Email</strong> team@richnowsolutions.com</a>
+          <a href="tel:+18322899111"><strong>Call</strong> (832) 289-9111</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="wrap">
+    <footer>
+      <div>
+        <div class="foot-brand">Richnow <em>Solutions</em></div>
+        <div class="foot-tag">Websites, SEO, Ads &amp; Software — one partner, built to grow with you.</div>
+      </div>
+      <div class="foot-contact">
+        <a href="mailto:team@richnowsolutions.com">team@richnowsolutions.com</a><br>
+        <a href="tel:+18322899111">(832) 289-9111</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Scroll-triggered reveals with staggered delay
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = parseFloat(el.dataset.delay) || 0;
+          el.style.animationDelay = delay + 's';
+          el.classList.add('in');
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
 </html>
