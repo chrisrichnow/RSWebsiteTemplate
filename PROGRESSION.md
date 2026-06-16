@@ -18,3 +18,6 @@ Auto-updated by git post-commit hook. Each entry = one commit.
 
 ## 2026-06-15 — Remove badge-removal JS; add /robottest isolation page
 `e155456`
+
+## 2026-06-16 — Restore warm brown palette
+`6e34b16`
