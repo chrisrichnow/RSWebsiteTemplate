@@ -24,3 +24,6 @@ Auto-updated by git post-commit hook. Each entry = one commit.
 
 ## 2026-06-16 — Static robot image in hero (drop WebGL); ship robot.png
 `81ab900`
+
+## 2026-06-16 — New robot-on-black favicon + /robottest 3D diagnostic page
+`a5cd607`
