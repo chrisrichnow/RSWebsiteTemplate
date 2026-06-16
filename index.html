@@ -199,7 +199,7 @@
   <header class="hero">
     <div class="hero-bg grain" aria-hidden="true"></div>
     <div class="hero-robot" aria-hidden="true">
-      <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading-anim-type="none"></spline-viewer>
+      <spline-viewer url="scene.splinecode" loading-anim-type="none"></spline-viewer>
     </div>
 
     <nav>
@@ -380,7 +380,7 @@
   <script>
     window.addEventListener('load', () => {
       const s = document.createElement('script'); s.type = 'module';
-      s.src = 'https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js';
+      s.src = 'spline-viewer.js';
       document.head.appendChild(s);
     });
     // Remove the "Built with Spline" badge from the viewer's shadow DOM

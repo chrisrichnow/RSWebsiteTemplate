@@ -1,7 +1,7 @@
 {
   "framework": null,
   "installCommand": "echo no-deps-needed",
-  "buildCommand": "mkdir -p dist && cp *.html dist/",
+  "buildCommand": "mkdir -p dist && cp *.html dist/ && cp spline-viewer.js scene.splinecode dist/",
   "outputDirectory": "dist",
   "cleanUrls": true
 }
