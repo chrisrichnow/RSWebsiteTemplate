@@ -383,14 +383,6 @@
       s.src = 'spline-viewer.js';
       document.head.appendChild(s);
     });
-    // Remove the "Built with Spline" badge from the viewer's shadow DOM
-    function killSplineBadge() {
-      document.querySelectorAll('spline-viewer').forEach(v => {
-        const r = v.shadowRoot; if (r) { const l = r.getElementById('logo') || r.querySelector('#logo, a[href*="spline"]'); if (l) l.remove(); }
-      });
-    }
-    const badgeTimer = setInterval(killSplineBadge, 250);
-    setTimeout(() => clearInterval(badgeTimer), 10000);
   </script>
   <!-- Reveals -->
   <script>
