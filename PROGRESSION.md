@@ -21,3 +21,6 @@ Auto-updated by git post-commit hook. Each entry = one commit.
 
 ## 2026-06-16 — Restore warm brown palette
 `6e34b16`
+
+## 2026-06-16 — Static robot image in hero (drop WebGL); ship robot.png
+`81ab900`
