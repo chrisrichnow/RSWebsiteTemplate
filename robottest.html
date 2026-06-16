@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Robot Test</title>
+<style>
+  html,body{margin:0;height:100%;background:#14120e;font-family:system-ui,sans-serif}
+  .t{position:fixed;top:14px;left:14px;right:14px;color:#fff;font-size:15px;z-index:10;line-height:1.5}
+  .t b{color:#d98a4f}
+  spline-viewer{width:100vw;height:100vh;display:block}
+</style>
+<script type="module" src="spline-viewer.js"></script>
+</head>
+<body>
+  <div class="t"><b>3D robot test.</b> If you see a 3D robot below (it may take a few seconds), the 3D can work and I'll put it on the homepage. If this stays empty, your browser is blocking the 3D and the static image is the only reliable option.</div>
+  <spline-viewer url="scene.splinecode"></spline-viewer>
+</body>
+</html>
