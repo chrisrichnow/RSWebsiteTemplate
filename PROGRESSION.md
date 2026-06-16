@@ -15,3 +15,6 @@ Auto-updated by git post-commit hook. Each entry = one commit.
 
 ## 2026-06-15 — Re-center robot headshot logo + favicon
 `41c2dfd`
+
+## 2026-06-15 — Remove badge-removal JS; add /robottest isolation page
+`e155456`
